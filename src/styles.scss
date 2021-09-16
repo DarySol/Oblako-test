@@ -1,0 +1,104 @@
+///* Add application styles & imports to this file! */
+//@import '~@angular/material/theming';
+//@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+//
+//
+$mat-myapp-primary: (
+  50 : #e2f2ff,
+  100 : #b9deff,
+  200 : #89caff,
+  300 : #4fb5ff,
+  400 : #08a3ff,
+  500 : #0093ff,
+  600 : #0083ff,
+  700 : #1070ff,
+  800 : #1f5dec,
+  900 : #2c38cc,
+  A100 : #ffffff,
+  A200 : #ffe2e2,
+  A400 : #ffafaf,
+  A700 : #ff9696,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$mat-myapp-accent: (
+  50 : #e2f2ff,
+  100 : #b9deff,
+  200 : #89caff,
+  300 : #4fb5ff,
+  400 : #08a3ff,
+  500 : #0093ff,
+  600 : #0083ff,
+  700 : #1070ff,
+  800 : #1f5dec,
+  900 : #2c38cc,
+  A100 : #00ff00,
+  A200 : #00ff00,
+  A400 : #00ff00,
+  A700 : #00ff00,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #000000,
+    600 : #000000,
+    700 : #000000,
+    800 : #000000,
+    900 : #000000,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+//
+//
+//$primary: mat-palette($mat-myapp-primary);
+//$accent: mat-palette($mat-myapp-accent);
+//
+//$theme: mat-light-theme($primary, $accent);
+
+@use '~@angular/material' as mat;
+
+@include mat.core();
+
+$my-primary: mat.define-palette($mat-myapp-primary);
+$my-accent: mat.define-palette($mat-myapp-accent);
+
+$my-theme: mat.define-light-theme((
+  color: (
+    primary: $my-primary,
+    accent: $my-accent,
+  )
+));
+
+@include mat.all-component-themes($my-theme);
+
+html, body { height: 100%; font-family: 'Montserrat', sans-serif;}
+body { margin: 0; font-family: 'Montserrat', sans-serif; }
+
+
+$my-custom-level: mat.define-typography-level(
+  $font-family: Montserrat,
+  $font-weight: 400,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal,
+);

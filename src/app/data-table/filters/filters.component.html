@@ -1,0 +1,77 @@
+<!--Filters-->
+<div class="filters">
+<!--  Search-->
+   <mat-form-field appearance="standard" class="filters-search filters-item">
+    <mat-icon matPrefix svgIcon="search" class="filters-search-icon"></mat-icon>
+    <mat-label class="filters-search-text filters-text">Поиск</mat-label>
+     <div class="filters-search-mobile" matSuffix>
+       <button mat-icon-button class="filters-search-mobile-btn" >
+         <mat-icon svgIcon="filter" class="filters-search-mobile-icon" color="accent"></mat-icon>
+       </button>
+     </div>
+    <input matInput class="filters-search-input">
+  </mat-form-field>
+
+<!--  Program-->
+  <mat-form-field appearance="standard" color="#1071FF" class="program filters-item">
+    <mat-label class="filters-program-text filters-text">Программа</mat-label>
+    <mat-select disableOptionCentering panelClass="myPanelClass">
+      <mat-option value="1">Все</mat-option>
+      <mat-option value="2">Программа 1</mat-option>
+      <mat-option value="3">Программа 2</mat-option>
+    </mat-select>
+    <mat-icon matSuffix class="field-arrow" >keyboard_arrow_down</mat-icon>
+  </mat-form-field>
+
+<!--  Period-->
+  <mat-form-field appearance="standard" color="#1071FF" class="period filters-item">
+    <mat-label class="filters-period-text filters-text">Период</mat-label>
+    <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+    <mat-select disableOptionCentering panelClass="myPanelClass">
+      <mat-option value="1">Июнь 2019</mat-option>
+      <mat-option value="2">Июль 2019</mat-option>
+      <mat-option value="3">Август 2019</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+<!--  Status-->
+  <mat-form-field appearance="standard" color="#1071FF" class="status filters-item">
+    <mat-label class="filters-status-text filters-text">Статус</mat-label>
+    <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+    <mat-select disableOptionCentering panelClass="myPanelClass">
+      <mat-option value="1">Все</mat-option>
+      <mat-option value="2">Статус 1</mat-option>
+      <mat-option value="3">Статус 2</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <!--  Sort-->
+  <mat-form-field appearance="standard" color="#1071FF" class="sort filters-item">
+    <mat-label class="filters-status-text filters-text">Сортировка</mat-label>
+    <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+    <mat-select disableOptionCentering panelClass="myPanelClass">
+      <mat-option value="1">По прогрессу обучения</mat-option>
+      <mat-option value="2">По дате</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</div>
+
+<!--Settings-->
+<div class="settings">
+  <div class="settings-sessions settings-item text">{{ sessions }}</div>
+
+  <div class="settings-filter">
+    <button mat-button class="settings-filter-btn">
+      <mat-icon svgIcon="filter" class="settings-filter-icon"></mat-icon>
+      Настроить фильтр
+    </button>
+  </div>
+
+  <div class="settings-clear">
+    <button mat-button class="settings-clear-btn">
+      <mat-icon svgIcon="close" class="settings-clear-icon"></mat-icon>
+      Сбросить
+    </button>
+  </div>
+</div>

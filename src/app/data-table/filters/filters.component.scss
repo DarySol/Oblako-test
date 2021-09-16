@@ -1,0 +1,213 @@
+.filters {
+  margin-top: 55px;
+  display: flex;
+  align-items: flex-end;
+
+  &-text {
+    font-family: "Montserrat", "Helvetica Neue", sans-serif;
+    font-weight: 500;
+  }
+
+  &-search {
+    align-items: end;
+
+    .mat-form-field-suffix{
+      display: none;
+    }
+    &-mobile{
+      display: none;
+      path{
+        fill: rgba(0, 0, 0, .8);
+      }
+      &-icon{
+        width: 15px;
+        height: auto;
+        line-height: 100%;
+        fill: rgba(0, 0, 0, .54);
+      }
+    }
+
+    &-icon {
+      margin-right: 10px;
+      height: 14px;
+      width: auto;
+    }
+
+    &-text {
+      font-family: "Montserrat", "Helvetica Neue", sans-serif;
+    }
+
+    &-input {
+      color: black;
+      opacity: 0.86;
+      font-weight: 600;
+      font-family: "Montserrat", "Helvetica Neue", sans-serif;
+    }
+  }
+
+  .mat-form-field {
+    margin-right: 30px;
+  }
+
+  .mat-form-field .mat-form-field.mat-white {
+    &.mat-focused {
+      .mat-form-field-label {
+        color: #FAFAFA;
+      }
+
+      .mat-form-field-ripple {
+        background-color: #FAFAFA !important;
+      }
+    }
+
+    .mat-form-field-label, .mat-form-field-label.mat-focused,
+    .mat-form-field.mat-focused.matform-field-should-float {
+      color: #FAFAFA;
+    }
+
+    .mat-form-field-underline, .mat-form-field-underline.mat-focused {
+      background-color: #FAFAFA;
+    }
+  }
+
+  ::ng-deep .mat-select-arrow {
+    width: 0;
+    height: 0;
+    border: none;
+  }
+
+  .sort{
+    display: none;
+  }
+}
+
+.mat-option.mat-selected:not(.mat-option-multiple):not(.mat-option-disabled) {
+  background: white;
+}
+
+//Settings
+.settings {
+  display: flex;
+  align-items: center;
+  margin-top: 36px;
+
+  &-filter {
+    display: flex;
+    align-items: center;
+    margin-left: 94px;
+    color: #1071FF;
+
+    &-btn {
+      font-family: "Montserrat", "Helvetica Neue", sans-serif;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 40px;
+    }
+
+    &-icon {
+      width: 18px;
+      height: 18px;
+      margin-right: 10px;
+      vertical-align: middle;
+      line-height: 100%;
+    }
+  }
+
+  &-clear {
+    display: flex;
+    align-items: center;
+    margin-left: 24px;
+    color: black;
+    opacity: 0.54;
+
+    &-btn {
+      font-family: "Montserrat", "Helvetica Neue", sans-serif;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 40px;
+    }
+
+    &-icon {
+      width: 12px;
+      height: auto;
+      margin-right: 10px;
+      vertical-align: middle;
+      line-height: 100%;
+    }
+  }
+
+  &-icon {
+    color: black;
+    opacity: 0.54;
+    margin-right: 10px;
+  }
+}
+
+@media (max-width: 960px) {
+  .filters {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 826px) {
+  .filters {
+    justify-content: space-between;
+
+    &-item {
+      width: 40%;
+    }
+  }
+}
+
+@media (max-width: 670px) {
+  .settings {
+    justify-content: space-between;
+    width: 100%;
+    &-filter {
+      margin-left: 0px;
+    }
+
+    &-clear {
+      margin-left: 0px;
+    }
+
+  }
+}
+
+@media (max-width: 626px) {
+  .settings {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 500px) {
+  .filters {
+    margin-top: 20px;
+    &-item {
+      width: 100%;
+    }
+    .program{
+      display: none;
+    }
+    .program{
+      display: none;
+    }
+    .period{
+      display: none;
+    }
+    .status{
+      display: none;
+    }
+    .sort{
+      display: block;
+    }
+    &-search{
+      &-mobile{
+        display: block;
+      }
+    }
+  }
+  .settings{
+    display: none;
+  }
+}

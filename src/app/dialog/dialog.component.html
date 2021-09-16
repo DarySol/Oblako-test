@@ -1,0 +1,300 @@
+<div class="dialog-header">
+  <h2>Планирование</h2>
+  <div class="dialog-btn">
+    <button mat-icon-button class="dialog-header-btn" (click)="myBtnClick()">
+      <mat-icon>check</mat-icon>
+    </button>
+    <button mat-icon-button class="dialog-header-btn" (click)="myBtnClick()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+</div>
+
+<div class="dialog-tabs">
+  <mat-tab-group align="left">
+
+    <mat-tab label="Основное" class="text">
+
+      <!--        Main-->
+      <mat-form-field appearance="standard" class="period dialog-form">
+        <mat-label class="dialog-text">Программа</mat-label>
+        <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+        <mat-select disableOptionCentering panelClass="myPanelClass">
+          <mat-option value="1">Страхование с заботой о клиенте</mat-option>
+          <mat-option value="2">Программа 1</mat-option>
+          <mat-option value="3">Программа 2</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <div class="dialog-event">
+        <h3>Мероприятие, дата и время проведения</h3>
+
+        <!--            training -->
+        <div class="dialog-event-extra" *ngFor="let training of trainings; let i=index ">
+          <div class="text text-small">Мероприятие</div>
+          <div class="dialog-event-extra-line">
+            <div class="dialog-event-extra-title text">{{ training.title }}</div>
+            <div class="dialog-event-extra-type text">Тренинг</div>
+          </div>
+
+          <div class="dialog-event-forms">
+            <!--            Date-->
+            <mat-form-field class="dialog-event-date" appearance="standard">
+              <mat-label class="dialog-text">Дата</mat-label>
+              <mat-icon matPrefix svgIcon="calendar" class="dialog-event-icon"></mat-icon>
+              <input matInput [matDatepicker]="picker">
+              <mat-datepicker-toggle matSuffix [for]="picker">
+                <mat-icon matDatepickerToggleIcon class="field-arrow">keyboard_arrow_down</mat-icon>
+              </mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <!--            Time-->
+            <mat-form-field appearance="standard" color="#1071FF" class="dialog-event-time">
+              <mat-label class="dialog-text">Время</mat-label>
+              <mat-icon matPrefix svgIcon="time" class="dialog-event-icon"></mat-icon>
+              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+              <mat-select disableOptionCentering panelClass="myPanelClass">
+                <mat-option value="1">9:00</mat-option>
+                <mat-option value="2">10:00</mat-option>
+                <mat-option value="3">11:00</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <!--            Tutor-->
+            <mat-form-field appearance="standard" color="#1071FF" class="dialog-event-tutor">
+              <mat-label class="dialog-text">Тренер</mat-label>
+              <mat-icon matPrefix svgIcon="avatar" class="dialog-event-tutor-avatar"></mat-icon>
+              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+              <mat-select disableOptionCentering panelClass="myPanelClass">
+                <mat-option value="1">Сергей Ефремов</mat-option>
+                <mat-option value="2">Анастасия Иванова</mat-option>
+                <mat-option value="3">Иван Иванов</mat-option>
+              </mat-select>
+            </mat-form-field>
+          </div>
+        </div>
+      </div>
+
+      <!--          Radio-buttons-->
+      <div class="dialog-conditions">
+        <h3>Условия записи по коду</h3>
+        <mat-radio-group aria-label="Select an option" class="dialog-radio">
+          <mat-radio-button value="1" class="text radio-item">Не использовать код доступа</mat-radio-button>
+          <mat-radio-button value="2" class="text radio-item">Требовать регистрацию</mat-radio-button>
+          <mat-radio-button value="3" class="text radio-item">Запросить только имя и фамилию</mat-radio-button>
+          <mat-radio-button value="4" class="text radio-item">Не требовать регистрацию, имя и фамилию</mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+    </mat-tab>
+
+
+    <!--        Participant tab-->
+    <mat-tab label="Участники" class="text">
+
+      <div class="dialog-participant-content">
+
+        <div class="dialog-participant-content-left">
+
+          <!--        Participants-->
+          <div class="dialog-participant">
+            <h3>Доступные участники</h3>
+
+            <!--            Search-->
+            <mat-form-field float label="auto" class="search" color="#1071FF">
+              <mat-icon matPrefix svgIcon="search" class="search-icon">search</mat-icon>
+              <mat-label class="dialog-text">Поиск</mat-label>
+              <input matInput>
+            </mat-form-field>
+
+            <!--            Group-->
+            <mat-form-field appearance="standard" color="#1071FF" class="group">
+              <mat-label class="dialog-text">Группа</mat-label>
+              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+              <mat-select disableOptionCentering panelClass="myPanelClass">
+                <mat-option value="1" class="dialog-text">Администрирование</mat-option>
+                <mat-option value="2" class="dialog-text">Группа 1</mat-option>
+                <mat-option value="3" class="dialog-text">Группа 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!--            Position-->
+            <mat-form-field appearance="standard" color="#1071FF" class="position">
+              <mat-label class="dialog-text">Должность</mat-label>
+              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+              <mat-select disableOptionCentering panelClass="myPanelClass">
+                <mat-option value="1" class="dialog-text">Администрирование</mat-option>
+                <mat-option value="2" class="dialog-text">Группа 1</mat-option>
+                <mat-option value="3" class="dialog-text">Группа 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!--            Exereance-->
+            <mat-form-field appearance="standard" color="#1071FF" class="expereance">
+              <mat-label class="dialog-text">Стаж</mat-label>
+              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>
+              <mat-select disableOptionCentering panelClass="myPanelClass">
+                <mat-option value="1" class="dialog-text">Администрирование</mat-option>
+                <mat-option value="2" class="dialog-text">Группа 1</mat-option>
+                <mat-option value="3" class="dialog-text">Группа 2</mat-option>
+              </mat-select>
+            </mat-form-field>
+
+            <!--            &lt;!&ndash;              Line3&ndash;&gt;-->
+            <!--            <mat-form-field appearance="standard" color="#1071FF" class="group">-->
+            <!--              <mat-label class="text">Подразделение</mat-label>-->
+            <!--              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>-->
+            <!--              <mat-select disableRipple>-->
+            <!--                <mat-option value="1" class="text">Администрирование</mat-option>-->
+            <!--                <mat-option value="2" class="text">Группа 1</mat-option>-->
+            <!--                <mat-option value="3" class="text">Группа 2</mat-option>-->
+            <!--              </mat-select>-->
+            <!--            </mat-form-field>-->
+
+            <!--&lt;!&ndash;            Area&ndash;&gt;-->
+            <!--            <mat-form-field appearance="standard" color="#1071FF" class="group">-->
+            <!--              <mat-label class="text">Округ</mat-label>-->
+            <!--              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>-->
+            <!--              <mat-select disableRipple>-->
+            <!--                <mat-option value="1" class="text">Администрирование</mat-option>-->
+            <!--                <mat-option value="2" class="text">Группа 1</mat-option>-->
+            <!--                <mat-option value="3" class="text">Группа 2</mat-option>-->
+            <!--              </mat-select>-->
+            <!--            </mat-form-field>-->
+
+            <!--&lt;!&ndash;            City&ndash;&gt;-->
+            <!--            <mat-form-field appearance="standard" color="#1071FF" class="group">-->
+            <!--              <mat-label class="text">Город</mat-label>-->
+            <!--              <mat-icon matSuffix class="field-arrow">keyboard_arrow_down</mat-icon>-->
+            <!--              <mat-select disableRipple>-->
+            <!--                <mat-option value="1" class="text">Администрирование</mat-option>-->
+            <!--                <mat-option value="2" class="text">Группа 1</mat-option>-->
+            <!--                <mat-option value="3" class="text">Группа 2</mat-option>-->
+            <!--              </mat-select>-->
+            <!--            </mat-form-field>-->
+
+            <!--            Settings-->
+
+            <!--Settings-->
+            <div class="settings">
+              <div class="dialog-text pathText">{{ users }}</div>
+
+              <div class="settings-filter">
+                <button mat-button class="settings-filter-btn" [matMenuTriggerFor]="menu">
+                  <mat-icon svgIcon="filter" class="settings-filter-icon"></mat-icon>
+                  Настроить
+                </button>
+
+                <mat-menu #menu="matMenu" class="settings-filter-menu">
+                  <div class="dialog-text-small menu-item-title">Системные поля</div>
+                  <button mat-menu-item class="dialog-text menu-item chosen">
+                    <span class="chosen">Поиск</span>
+                    <mat-icon>done</mat-icon>
+                  </button>
+                  <button mat-menu-item class="dialog-text menu-item" >
+                    <span class="chosen">Группа</span>
+                    <mat-icon>done</mat-icon>
+                  </button>
+                  <button mat-menu-item class="dialog-text menu-item chosen">
+                    <span class="chosen">Должность</span>
+                    <mat-icon>done</mat-icon>
+                  </button>
+                  <button mat-menu-item class="dialog-text menu-item chosen">
+                    <span class="chosen">Стаж</span>
+                    <mat-icon>done</mat-icon>
+                  </button>
+                  <div class="dialog-text-small menu-item-title">Дополнительные поля</div>
+                  <button mat-menu-item class="dialog-text menu-item">
+                    <span>Подразделение</span>
+<!--                    <mat-icon>done</mat-icon>-->
+                  </button>
+                  <button mat-menu-item class="dialog-text menu-item">
+                    <span>Округ</span>
+<!--                    <mat-icon>done</mat-icon>-->
+                  </button>
+                  <button mat-menu-item class="dialog-text menu-item">
+                    <span>Город</span>
+<!--                    <mat-icon>done</mat-icon>-->
+                  </button>
+                </mat-menu>
+              </div>
+
+              <div class="settings-clear">
+                <button mat-button class="settings-clear-btn">
+                  <mat-icon svgIcon="close" class="settings-clear-icon"></mat-icon>
+                  Сбросить
+                </button>
+              </div>
+            </div>
+
+            <!--                Checkbox-->
+            <section class="dialog-checkbox-section">
+              <mat-checkbox class="dialog-margin" class="dialog-text"
+                            [checked]="allComplete"
+                            [indeterminate]="someComplete()">
+                {{nameList.name}}
+              </mat-checkbox>
+              <ul>
+                <div>
+
+                </div>
+                <li *ngFor="let nameElement of nameList.nameElements">
+                  <div class="dialog-checkbox-list">
+                    <mat-checkbox class="dialog-text"
+                                  (ngModelChange)="updateAllComplete()">
+                      {{nameElement.name}}
+                    </mat-checkbox>
+                    </div>
+                </li>
+              </ul>
+            </section>
+
+          </div>
+        </div>
+
+        <div class="dialog-participant-content-right">
+          <h3>Участники мероприятия</h3>
+          <!--                Checkbox-->
+          <section class="dialog-checkbox-section" *ngIf="task.subtasks.length; else noTasks">
+            <mat-checkbox class="dialog-margin dialog-text"
+                          [checked]="allComplete"
+                          [indeterminate]="someComplete()">
+              {{task.name}}
+            </mat-checkbox>
+            <ul>
+              <li *ngFor="let subtask of task.subtasks" >
+
+                <div class="dialog-checkbox-list">
+                  <mat-checkbox class="dialog-text"
+                                (ngModelChange)="updateAllComplete()">
+                    {{subtask.name}}
+                  </mat-checkbox>
+                  <button mat-icon-button (click)="removeRecord(subtask.name)" class="dialog-checkbox-section-btn">
+                    <mat-icon class="dialog-checkbox-section-icon">delete_outline</mat-icon>
+                  </button>
+                </div>
+
+              </li>
+            </ul>
+          </section>
+
+          <ng-template #noTasks>
+
+            <div class="participant-area">
+              <div class="participant-area-content">
+                <img src="../assets/icons/dragndrop.png" class="participant-area-img">
+                <p class="dialog-text participant-area-text">Наполните группу, перетаскивая участников<br>
+                  из списка доступных в левой колонке</p>
+              </div>
+            </div>
+          </ng-template>
+
+        </div>
+
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+</div>
+
+
+

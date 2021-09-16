@@ -1,0 +1,67 @@
+<!--Filters-->
+<app-filters></app-filters>
+
+<table mat-table [dataSource]="dataSource" class="demo-table">
+
+  <!-- Date Column -->
+  <ng-container matColumnDef="date">
+    <th mat-header-cell *matHeaderCellDef class="text-small"> Дата начала</th>
+    <td mat-cell *matCellDef="let element" class="text"> {{element.date}} </td>
+  </ng-container>
+
+  <!-- Title Column -->
+  <ng-container matColumnDef="title">
+    <th mat-header-cell *matHeaderCellDef class="text-small title"> Название</th>
+    <td mat-cell *matCellDef="let element" class="text title"> {{element.title}} </td>
+  </ng-container>
+
+  <!-- Member Column -->
+  <ng-container matColumnDef="member">
+    <th #memberColumnHeader mat-header-cell *matHeaderCellDef class="text-small member">{{getMemberColumnTitle(memberColumnHeader)}}</th>
+<!--    <th mat-header-cell *matHeaderCellDef class="text-small"> Участников</th>-->
+    <td mat-cell *matCellDef="let element" class="text member"> {{element.member}} </td>
+  </ng-container>
+
+  <!-- Tutor Column -->
+  <ng-container matColumnDef="tutor">
+    <th mat-header-cell *matHeaderCellDef class="text-small tutor"> Тренер</th>
+    <td mat-cell *matCellDef="let element" class="text tutor"> {{element.tutor}} </td>
+  </ng-container>
+
+  <!-- Progress Column -->
+  <ng-container matColumnDef="progress">
+    <th mat-header-cell *matHeaderCellDef class="text-small"> Прогресс</th>
+    <td mat-cell *matCellDef="let element" class="text">
+      <mat-icon svgIcon="progressing" class="progress-icon"></mat-icon>
+      {{element.progress}} %
+    </td>
+  </ng-container>
+
+  <!-- Actions Btn Column -->
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef class="actions actions-row-th"></th>
+    <td mat-cell *matCellDef="let element" class="actions actions-row-td">
+      <button mat-mini-fab class="actions-btn hover-display" [matMenuTriggerFor]="aboveMenu"
+              #menuTrigger="matMenuTrigger" [ngClass]="{ 'open': menuTrigger.menuOpen }">
+        <mat-icon class="actions-icon">more_vert</mat-icon>
+      </button>
+      <mat-menu #aboveMenu="matMenu" xPosition="before" yPosition="above" class="actions-menu">
+        <button mat-menu-item class="text actions-menu-item">
+          <mat-icon class="actions-menu-icon">edit</mat-icon>
+          Редактировать
+        </button>
+        <div>
+          <button mat-menu-item class="text actions-menu-item" (click)="onRemoveClick(element.title)">
+            <mat-icon class="actions-menu-icon">delete_outline</mat-icon>
+            Удалить слот
+          </button>
+        </div>
+      </mat-menu>
+    </td>
+  </ng-container>
+
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+

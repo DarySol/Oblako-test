@@ -1,0 +1,55 @@
+<mat-drawer-container class="drawer-container" autosize>
+
+  <!--  Dialog-->
+  <mat-drawer #drawer mode="over" position="end" class="dialog-container">
+    <app-dialog [test]="'test'" (btnClick)="drawer.toggle()"></app-dialog>
+  </mat-drawer>
+
+
+  <!--  Main Content-->
+  <mat-drawer-content class="drawer-content">
+
+    <!--    Header-->
+    <div class="header">
+      <button mat-icon-button class="header-menu">
+        <mat-icon class="header-menu-icon">menu</mat-icon>
+      </button>
+      <h1 class="header-mobile-title">{{ appTitle }}</h1>
+      <div class="header-mobile-dialog">
+        <button mat-icon-button class="header-mobile-btn">
+          <mat-icon class="header-mobile-icon">add</mat-icon>
+        </button>
+      </div>
+      <div class="header-plan">
+        <button class="header-plan-btn" mat-button (click)="drawer.toggle()">
+          <mat-icon class="header-plan-icon">add</mat-icon>
+          Запланировать
+        </button>
+      </div>
+    </div>
+
+    <!--    Content-->
+    <div class="container">
+      <div class="path text">{{ strPath }}</div>
+      <div class="pageTitle">
+        <mat-icon svgIcon="planing" class="pageTitle-icon"></mat-icon>
+        <h1>{{ appTitle }}</h1>
+      </div>
+
+      <!--Tabs-->
+      <div class="tabs">
+        <mat-tab-group align="left" position="-1">
+          <mat-tab label="Групповое" class="text">
+          </mat-tab>
+          <mat-tab label="Индивидуальное" class="text"></mat-tab>
+        </mat-tab-group>
+      </div>
+
+      <!--        Data-table-->
+      <app-data-table></app-data-table>
+    </div>
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
