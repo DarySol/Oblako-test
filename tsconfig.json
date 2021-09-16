@@ -20,8 +20,9 @@
     "lib": [
       "es2018",
       "dom"
-    ]
+    ],
   },
+  "exclude": ["src/test.ts", "**/*.spec.ts"],
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,

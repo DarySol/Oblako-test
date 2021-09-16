@@ -8,6 +8,11 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "heroku-postbuild": "ng build --prod",
+  "engines": {
+    "node": "v14.15.1",
+    "npm": "6.14.8"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~12.2.0",
